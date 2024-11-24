@@ -1,19 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './components/HomePage';
-import DomainDetails from './components/DomainDetails';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './HomePage';
+import DomainPage from './DomainPage';
 
-const App = () => {
+function App() {
   return (
     <Router>
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/domain/:domain" element={<DomainDetails />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/page/:pageNumber" element={<HomePage />} />
+        <Route path="/domain/:domain" element={<DomainPage />} />
+        <Route path="/" element={<HomePage />} />
+      </Routes>
     </Router>
   );
-};
+}
 
 export default App;
